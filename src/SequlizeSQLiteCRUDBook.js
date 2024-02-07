@@ -5,14 +5,14 @@ const app = express();
 app.use(express.json());
 
 
-const sequelize = new Sequelize('database','username','password',{
+const Sequelize = new Sequelize('database','username','password',{
     host: 'localhost',
     dialect: 'sqlite',
     storage: './Database/SQBooks.sqlite'
 });
 
 //definde the Book model
-const Book = sequelize.define('book', {
+const Book = Sequelize.define('book', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -42,7 +42,7 @@ app.get('/books', (req,res) => {
 });
 
 //route to get a book by id
-app.get('/books/:id', (req, res) => {
+app,get('/books/:id', (req, res) => {
     Book.findByPk(req.params.id).then(books => {
         if (!book) {
             res.status(404).send('Book not found');
@@ -66,7 +66,7 @@ app.post('/books', (req, res) => {
 
 // rioute to update a book
 app.put('/books/:id',(req,res) => {
-    Book.findByPk(req.params.id).then(book => {
+    book.findByPk(req.params.id).then(book => {
         if (!book) {
             res.status(404).send('Book not found');
         } else {
@@ -101,5 +101,5 @@ app.delete('/books/:id', (req, res) => {
 
 
 //start the sever 
-const port = process.env.PORT || 3000 ;
+const port = proce.env.PORT || 3000 ;
 app.listen(port, () => console.log(`Listenning on port ${port}...`));
