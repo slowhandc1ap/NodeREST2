@@ -43,7 +43,7 @@ app.get('/books', (req,res) => {
 
 //route to get a book by id
 app.get('/books/:id', (req, res) => {
-    Book.findByPk(req.params.id).then(books => {
+    Book.findByPk(req.params.id).then(book => {
         if (!book) {
             res.status(404).send('Book not found');
         } else{
@@ -64,7 +64,7 @@ app.post('/books', (req, res) => {
     });
 });
 
-// rioute to update a book
+// route to update a book
 app.put('/books/:id',(req,res) => {
     Book.findByPk(req.params.id).then(book => {
         if (!book) {
