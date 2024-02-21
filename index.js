@@ -77,12 +77,13 @@ app.get("/books/:id", async (req ,res) => {
     }
 });
 
-//Updat 
+//Update 
 app.put("/books/:id", async (req ,res) => {
     try{
         const book = await Book.findOneAndUpdate({id:req.params.id}, req.body, {
             new: true,
         });
+        res.send(book);
     }catch (error) {
         res.status(500).send(error);
     }
