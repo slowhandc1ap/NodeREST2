@@ -1,10 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Sequelize = require('sequelize');
-const bodyParser = require('body-parser')
+const Sequelize = require('sequelize')
 const app = express();
 
-
+app.use(express.json());
 //const dbUrl = 'postgres://webadmin:TVAbdv34123@node57007-tanakorntawee-noderest.proen.app.ruk-com.cloud/Books'
 
 
@@ -15,7 +14,7 @@ const app = express();
 // //     storage: './Database/SQBooks.sqlite'
 // // });
 mongoose.connect(
-    "mongodb://admin:HSMabo07193@node57006-tanakorntawee-noderest.proen.app.ruk-com.cloud:11844",
+    "mongodb:admin:HSMabo07193@node57006-tanakorntawee-noderest.proen.app.ruk-com.cloud:11844",
     {
         useNewUrlParser: true ,
         useUnifiedTopology: true,
@@ -34,7 +33,7 @@ const Book = mongoose.model("Book", {
 });
 
 
-app.use(bodyParser.json());
+app.use(bodyParse.json());
 
 //create
 app.post("/books", async (req ,res) =>{
