@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Sequelize = require('sequelize');
+//const Sequelize = require('sequelize');
 const bodyParser = require('body-parser')
 const app = express();
 
@@ -15,7 +15,7 @@ const app = express();
 // //     storage: './Database/SQBooks.sqlite'
 // // });
 mongoose.connect(
-    "mongodb://admin:HSMabo07193@node57006-tanakorntawee-noderest.proen.app.ruk-com.cloud:11844",
+    "mongodb://admin:HSMabo07193@node57006-tanakorntawee-noderest.proen.app.ruk-com.cloud",
     {
         useNewUrlParser: true ,
         useUnifiedTopology: true,
