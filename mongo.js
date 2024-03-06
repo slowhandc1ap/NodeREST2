@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Sequelize = require('sequelize')
 const app = express();
+const core = require('core');
 
 app.use(express.json());
 //const dbUrl = 'postgres://webadmin:TVAbdv34123@node57007-tanakorntawee-noderest.proen.app.ruk-com.cloud/Books'
@@ -34,6 +35,7 @@ const Book = mongoose.model("Book", {
 
 
 app.use(bodyParse.json());
+app.use(core());
 
 //create
 app.post("/books", async (req ,res) =>{
